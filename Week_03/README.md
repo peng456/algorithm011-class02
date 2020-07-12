@@ -15,7 +15,7 @@
 
 1、递归迭代模板
 
-# Python
+```Python
 def recursion(level, param1, param2, ...): 
     # recursion terminator   
     if level > MAX_LEVEL:    // 边界条件： 停止
@@ -29,10 +29,10 @@ def recursion(level, param1, param2, ...):
     self.recursion(level + 1, p1, ...) 
     
     # reverse the current level status if needed   // 处理 一些状态（跳回上一层，可能需要 把一些状态 位，重新处理）
-
+```
 
 2、分支模板
-# Python
+```Python
 def divide_conquer(problem, param1, param2, ...): 
   # recursion terminator   // 边界问题，是否到达条件，是否返回
   if problem is None: 
@@ -50,7 +50,26 @@ def divide_conquer(problem, param1, param2, ...):
   result = process_result(subresult1, subresult2, subresult3, …)
  
   # revert the current level states   // 状态处理 &&  返回结果
-  
+  ```
   3、补充一个回溯模板
-  # revert the current level states   // 状态处理 &&  返回结果
-          
+ 回溯搜索套路：
+```Python
+function backtrace ( 路径， 选择列表)
+{
+	if (满足条件)
+	{
+		$result.add(路径)
+		return;
+	}
+
+	for 选择 in 选择列表
+		做选择
+		backtrace(路径， 选择列表)
+		撤销选择
+
+}
+```     
+     
+看完三个套路： 其实差不多。 分治重点在 拆分子问题域、  递归 重点在  递归，循环调用自身   回溯： 应该是对的一种；带有记忆性，一种贪婪性策略的试探策略     
+
+
